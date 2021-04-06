@@ -1,0 +1,26 @@
+span{
+  color:#038c96;
+  font-size: 1.2em;
+}
+li{
+  display: flex;
+  flex-direction: column;
+}
+.project{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.details{
+  background-color:#038c96;
+  color: #fff;
+}
+.details:hover{
+  background-color: #7bdae0;
+  color: #000;
+}
+.selected span{
+  color: #eb82b3;
+}
