@@ -10,6 +10,7 @@ import { ProjectService } from '../project.service';
 export class ProjectFormComponent implements OnInit {
 
   project: Project = new Project();
+  title: String ="Add new project";
 
   @Input() projects: Project[];
   @Output() addedProjectEvent = new EventEmitter();
@@ -23,6 +24,7 @@ export class ProjectFormComponent implements OnInit {
     name = name.trim();
     this.project.name = name;
     this.project.date = new Date().toUTCString();
+    if(!name){ return; }
 
     this.projectService.addProject(this.project)
     .subscribe(project =>this.projects.push(project));

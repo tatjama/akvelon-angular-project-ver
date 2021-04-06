@@ -5,11 +5,15 @@
   <p> id: {{ project.id }} </p>
   <p> date: {{ project.date }} </p>
   <app-tasks [tasks] = "project.tasks"></app-tasks>
+  <header>
+    <h2>UPDATE PROJECT </h2>
+  </header>
   <div>
     <label for="project-name"></label>
     <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
     <button type="button" (click) = "save()">Save</button>
   </div>
+  <app-task-form [tasks] = "project.tasks"></app-task-form>
 </div>
 
 <button (click) = "goBack()">go back</button>

@@ -1,0 +1,23 @@
+<header>
+  <h2> {{ title | uppercase }} </h2>
+</header>
+<div>
+  <label for="task-name">Task name:</label>
+  <br>
+  <input id="task-name" type="text" #taskName [(ngModel)] = "task.title"/>
+  <br>
+  <label for="task-description" > Description: </label>
+  <br>
+  <input id="task-description" type="text" #taskDescription [(ngModel)] = "task.description"/>
+  <br>
+  <label for="task-estimate">Estimate:</label>
+  <br>
+  <input id="task-estimate" type="number" #taskEstimate [(ngModel)] = "task.estimate"/>
+  <br>
+  <button
+    type="button"
+    (click)="onSubmit(task.title, task.description, task.estimate);
+      taskName.value =''; taskDescription.value = ''; taskEstimate.value = '' "
+    > Submit
+  </button>
+</div>

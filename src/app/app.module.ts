@@ -13,6 +13,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { ProjectFormComponent } from './project-form/project-form.component';
+import { TaskFormComponent } from './task-form/task-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ProjectFormComponent } from './project-form/project-form.component';
     MessagesComponent,
     TasksComponent,
     TaskDetailComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
