@@ -48,11 +48,12 @@ button{
 .form label{
   color: #369;
 }
-.form input{
+input{
   width: 100%;
   padding: 7px;
   margin: 5px 10px 5px 0px;
   border: none;
+  outline: none;
 }
 .form input[type="button"]{
   padding: 8px;

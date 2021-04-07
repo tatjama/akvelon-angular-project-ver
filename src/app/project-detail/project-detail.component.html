@@ -7,17 +7,36 @@
     <h3> Date: {{ project.date }} </h3>
   </div>
   <app-tasks [tasks] = "project.tasks"></app-tasks>
-  <div class="form update-project-form">
-    <header>
-      <h2>UPDATE PROJECT </h2>
-    </header>
-    <div>
-      <label for="project-name"></label>
-      <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
-      <input type="button" value="Save" (click) = "save()"/>
+  <div class="form ">
+    <input
+      type="button"
+      class="show"
+      [class.close] = "isShowingUpdateForm === true"
+      value = "Update project name"
+      #updateButton
+      (click) = "showUpdateForm();
+      isShowingUpdateForm? updateButton.value = 'x': updateButton.value = 'Update project name'"
+      />
+    <div *ngIf="isShowingUpdateForm" class="form update-project-form">
+      <header>
+        <h2>UPDATE PROJECT </h2>
+      </header>
+      <div>
+        <label for="project-name"></label>
+        <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
+        <input type="button" value="Save" (click) = "save()"/>
+      </div>
     </div>
+    <input
+      type="button"
+      class="show"
+      [class.close] = "isShowingAddForm === true"
+      value = "Add new task"
+      #addButton
+      (click) = "showAddForm(); isShowingAddForm? addButton.value = 'x': addButton.value = 'Add new task'"
+      />
+    <app-task-form *ngIf = "isShowingAddForm" (addedTaskEvent) = "addTask($event)"  [project] = "project" ></app-task-form>
   </div>
-  <app-task-form (addedTaskEvent) = "addTask($event)"  [project] = "project" ></app-task-form>
 </div>
 
 <button class="back-button" (click) = "goBack()">go back</button>

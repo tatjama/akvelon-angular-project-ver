@@ -17,6 +17,8 @@ export class ProjectDetailComponent implements OnInit {
 
    project: Project;
    selectedProject: Project;
+   isShowingAddForm: boolean = false;
+   isShowingUpdateForm: boolean = false;
 
   constructor(
       private route: ActivatedRoute,
@@ -46,7 +48,12 @@ export class ProjectDetailComponent implements OnInit {
     this.projectService.updateProject(this.selectedProject)
       .subscribe(() => this.goBack());
   }
-
+  showAddForm(): void {
+    this.isShowingAddForm = !this.isShowingAddForm;
+  }
+  showUpdateForm(): void {
+    this.isShowingUpdateForm = !this.isShowingUpdateForm;
+  }
   addTask(project: Project){
     this.projectService.updateProject(project)
     .subscribe(project=>this.project = project);
