@@ -4,21 +4,20 @@
 <div>
   <label for="task-name">Task name:</label>
   <br>
-  <input id="task-name" type="text" #taskName [(ngModel)] = "task.title"/>
+  <input id="task-name" type="text" #taskName [(ngModel)] = "newTask.title"/>
   <br>
   <label for="task-description" > Description: </label>
   <br>
-  <input id="task-description" type="text" #taskDescription [(ngModel)] = "task.description"/>
+  <input id="task-description" type="text" #taskDescription [(ngModel)] = "newTask.description"/>
   <br>
   <label for="task-estimate">Estimate:</label>
   <br>
-  <input id="task-estimate" type="number" #taskEstimate [(ngModel)] = "task.estimate"/>
+  <input id="task-estimate" type="number" #taskEstimate [(ngModel)] = "newTask.estimate"/>
   <br>
   <button
     type="button"
-    (click)="onSubmit(task.title, task.description, task.estimate);
+    (click)="onSubmit();
       taskName.value =''; taskDescription.value = ''; taskEstimate.value = '' "
-
     > Submit
   </button>
 </div>

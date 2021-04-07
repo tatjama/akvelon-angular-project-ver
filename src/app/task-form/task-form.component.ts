@@ -10,9 +10,9 @@ import { Task } from '../task';
 
 export class TaskFormComponent implements OnInit {
 
-  task:Task = new Task();
+  newTask:Task = new Task();
   title:string ="Add new task";
-  updatedTasks: Task[];
+  //updatedTasks: Task[];
   updatedProject: Project;
 
   @Input() project:Project;
@@ -23,21 +23,14 @@ export class TaskFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(title:string, description:string, estimate:number): void {
-    this.task.title = title.trim();
-    this.task.description = description.trim();
-    this.task.estimate = estimate;
-    this.task.date = new Date().toUTCString();
-    this.task.projectId = this.project.id;
-    if(!this.task.title){return; }
-
-    //clone new array of tasks from tasks
-    this.updatedTasks = JSON.parse(JSON.stringify(this.project.tasks));
-    this.updatedTasks.push(this.task);
+  onSubmit(): void {
+    this.newTask.date = new Date().toUTCString();
+    this.newTask.projectId = this.project.id;
+    if(!this.newTask.title){return; }
 
     //clone new object project from project
     this.updatedProject = Object.assign({}, this.project);
-    this.updatedProject.tasks = this.updatedTasks;
+    this.updatedProject.tasks.push(this.newTask);
     this.addedTaskEvent.emit(this.updatedProject);
   }
 }

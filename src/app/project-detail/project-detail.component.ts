@@ -16,7 +16,6 @@ import { Project } from '../project';
 export class ProjectDetailComponent implements OnInit {
 
    project: Project;
-   //selectedProject: Project = new Project();
    selectedProject: Project;
 
   constructor(
@@ -49,7 +48,8 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   addTask(project: Project){
-    this.projectService.updateProject(project).subscribe(project=>this.project = project);
+    this.projectService.updateProject(project)
+    .subscribe(project=>this.project = project);
   }
 
 }

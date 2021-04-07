@@ -9,7 +9,7 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectFormComponent implements OnInit {
 
-  project: Project = new Project();
+  addedProject: Project = new Project();
   title: String ="Add new project";
 
   @Input() projects: Project[];
@@ -20,14 +20,12 @@ export class ProjectFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  add(name:string): void {
-    name = name.trim();
-    this.project.name = name;
-    this.project.date = new Date().toUTCString();
-    this.project.tasks = [];
-    if(!name){ return; }
+  add(): void {
+    this.addedProject.date = new Date().toUTCString();
+    this.addedProject.tasks = [];
+    if(!this.addedProject.name){ return; }
 
-    this.projectService.addProject(this.project)
+    this.projectService.addProject(this.addedProject)
     .subscribe(project =>this.projects.push(project));
     this.addedProjectEvent.emit();
   }

@@ -4,8 +4,8 @@
 <div>
   <label id="new-project">Project name: </label>
   <br>
-  <input for="new-project" #projectName [(ngModel)] = "project.name" />
-  <button class="add-button" (click)="add(project.name); projectName.value=''">
+  <input for="new-project" #projectName [(ngModel)] = "addedProject.name" />
+  <button class="add-button" (click)="add(); projectName.value=''">
     Add Project
   </button>
 </div>
