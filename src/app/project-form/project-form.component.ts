@@ -24,6 +24,7 @@ export class ProjectFormComponent implements OnInit {
     name = name.trim();
     this.project.name = name;
     this.project.date = new Date().toUTCString();
+    this.project.tasks = [];
     if(!name){ return; }
 
     this.projectService.addProject(this.project)

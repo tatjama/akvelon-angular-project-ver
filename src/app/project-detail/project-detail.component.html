@@ -13,7 +13,7 @@
     <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
     <button type="button" (click) = "save()">Save</button>
   </div>
-  <app-task-form [tasks] = "project.tasks"></app-task-form>
+  <app-task-form (addedTaskEvent) = "addTask($event)"  [project] = "project" ></app-task-form>
 </div>
 
 <button (click) = "goBack()">go back</button>

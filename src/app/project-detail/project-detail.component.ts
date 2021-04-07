@@ -34,6 +34,7 @@ export class ProjectDetailComponent implements OnInit {
     this.projectService.getProject(id)
     .subscribe(project => {
       this.project = project;
+      //clone new project from project
       this.selectedProject = Object.assign({}, project)
     });
   }
@@ -45,6 +46,10 @@ export class ProjectDetailComponent implements OnInit {
   save(): void {
     this.projectService.updateProject(this.selectedProject)
       .subscribe(() => this.goBack());
+  }
+
+  addTask(project: Project){
+    this.projectService.updateProject(project).subscribe(project=>this.project = project);
   }
 
 }

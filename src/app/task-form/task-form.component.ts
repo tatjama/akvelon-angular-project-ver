@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Project } from '../project';
 import { Task } from '../task';
 
 @Component({
@@ -6,11 +7,16 @@ import { Task } from '../task';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css']
 })
+
 export class TaskFormComponent implements OnInit {
 
   task:Task = new Task();
   title:string ="Add new task";
-  @Input() tasks:Task[];
+  updatedTasks: Task[];
+  updatedProject: Project;
+
+  @Input() project:Project;
+  @Output() addedTaskEvent = new EventEmitter<Project>();
 
   constructor() { }
 
@@ -21,8 +27,17 @@ export class TaskFormComponent implements OnInit {
     this.task.title = title.trim();
     this.task.description = description.trim();
     this.task.estimate = estimate;
-    console.log(this.task)
+    this.task.date = new Date().toUTCString();
+    this.task.projectId = this.project.id;
     if(!this.task.title){return; }
-    console.log(this.tasks)
+
+    //clone new array of tasks from tasks
+    this.updatedTasks = JSON.parse(JSON.stringify(this.project.tasks));
+    this.updatedTasks.push(this.task);
+
+    //clone new object project from project
+    this.updatedProject = Object.assign({}, this.project);
+    this.updatedProject.tasks = this.updatedTasks;
+    this.addedTaskEvent.emit(this.updatedProject);
   }
 }
