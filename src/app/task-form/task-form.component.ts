@@ -24,7 +24,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.newTask.date = new Date().toUTCString();
+    this.newTask.date = new Date().toLocaleDateString().slice(0,10).replace(/\//g, ".");
     this.newTask.projectId = this.project.id;
     if(!this.newTask.title){return; }
 

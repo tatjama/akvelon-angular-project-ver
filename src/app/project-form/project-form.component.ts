@@ -21,7 +21,7 @@ export class ProjectFormComponent implements OnInit {
   }
 
   add(): void {
-    this.addedProject.date = new Date().toUTCString();
+    this.addedProject.date = new Date().toLocaleDateString().slice(0,10).replace(/\//g, ".");
     this.addedProject.tasks = [];
     if(!this.addedProject.name){ return; }
 
