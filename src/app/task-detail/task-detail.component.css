@@ -1,9 +1,16 @@
 .task-detail{
   background-color: #eb82b3;
   color: #f3dee8;
-  padding: 10px;
+  padding: 15px;
   font-weight: bold;
+  width: 50%;
+  margin:auto;
 }
 span{
   color: #fff;
+}
+@media screen and (max-width:768px){
+  .task-detail{
+    width: 100%;
+  }
 }

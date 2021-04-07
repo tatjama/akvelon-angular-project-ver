@@ -3,6 +3,9 @@
   padding: 15px;
   margin: 10px auto;
 }
+.project-detail-list{
+  margin: 20px auto;
+}
 .back-button{
   background-color: #369;
   color: #fff;
