@@ -5,6 +5,7 @@
 }
 .project-detail-list{
   margin: 20px auto;
+  flex-wrap: wrap;
 }
 .back-button{
   background-color: #369;
@@ -16,14 +17,6 @@
   background-color: #b6cbe0;
   color:#369;
   margin-top: 10px;
-}
-.update-project-form input[type="button"]{
-  background-color: #06a590;
-  color: #fff;
-}
-.update-project-form input[type="button"]:hover{
-  background-color:#84ddd1;
-  color:#000;
 }
 .show{
   background-color: #eb82b3;

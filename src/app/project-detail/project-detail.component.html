@@ -8,25 +8,7 @@
   </div>
   <app-tasks [tasks] = "project.tasks"></app-tasks>
   <div class="form ">
-    <input
-      type="button"
-      class="show"
-      [class.close] = "isShowingUpdateForm === true"
-      value = "Update project name"
-      #updateButton
-      (click) = "showUpdateForm();
-      isShowingUpdateForm? updateButton.value = 'x': updateButton.value = 'Update project name'"
-      />
-    <div *ngIf="isShowingUpdateForm" class="form update-project-form">
-      <header>
-        <h2>UPDATE PROJECT </h2>
-      </header>
-      <div>
-        <label for="project-name"></label>
-        <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
-        <input type="button" value="Save" (click) = "save()"/>
-      </div>
-    </div>
+
     <input
       type="button"
       class="show"
@@ -35,7 +17,26 @@
       #addButton
       (click) = "showAddForm(); isShowingAddForm? addButton.value = 'x': addButton.value = 'Add new task'"
       />
-    <app-task-form *ngIf = "isShowingAddForm" (addedTaskEvent) = "addTask($event)"  [project] = "project" ></app-task-form>
+    <app-task-form
+      [project] = "project"
+      *ngIf = "isShowingAddForm"
+      (addedTaskEvent) = "addTask($event)"
+       ></app-task-form>
+
+       <input
+      type="button"
+      class="show"
+      [class.close] = "isShowingUpdateForm === true"
+      value = "Update project name"
+      #updateButton
+      (click) = "showUpdateForm();
+      isShowingUpdateForm? updateButton.value = 'x': updateButton.value = 'Update project name'"
+      />
+    <app-project-update
+       [selectedProject] = "selectedProject"
+       *ngIf="isShowingUpdateForm"
+       (updateProjectEvent) = "save($event)"
+       ></app-project-update>
   </div>
 </div>
 

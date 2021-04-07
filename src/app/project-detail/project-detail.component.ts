@@ -44,7 +44,7 @@ export class ProjectDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(): void {
+  save(event: Event): void {
     this.projectService.updateProject(this.selectedProject)
       .subscribe(() => this.goBack());
   }
