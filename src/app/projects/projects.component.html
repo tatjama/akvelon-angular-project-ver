@@ -4,7 +4,7 @@
 
 <ul class="projects">
   <li *ngFor="let project of projects">
-      <div class="project">
+      <div class="list project-list">
         <span>{{ project.name }}</span>
         <a routerLink = "/projectdetail/{{ project.id }}">
           <button class="details" [id]="project.id" [project] = "selectedProject" > Show Details</button>
@@ -13,6 +13,5 @@
   </li>
   <app-project-form (addedProjectEvent) = "getProjects()" [projects] = "projects" ></app-project-form>
 </ul>
-<!--<app-project-detail [project] = "selectedProject"></app-project-detail>-->
 
 

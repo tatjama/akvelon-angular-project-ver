@@ -2,19 +2,23 @@
   <header>
       <h1> {{ project.name |uppercase }} </h1>
   </header>
-  <p> id: {{ project.id }} </p>
-  <p> date: {{ project.date }} </p>
+  <div class="list">
+    <h3> ID: {{ project.id  }} </h3>
+    <h3> Date: {{ project.date }} </h3>
+  </div>
   <app-tasks [tasks] = "project.tasks"></app-tasks>
-  <header>
-    <h2>UPDATE PROJECT </h2>
-  </header>
-  <div>
-    <label for="project-name"></label>
-    <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
-    <button type="button" (click) = "save()">Save</button>
+  <div class="form update-project-form">
+    <header>
+      <h2>UPDATE PROJECT </h2>
+    </header>
+    <div>
+      <label for="project-name"></label>
+      <input type="text" placeholder="name" id="project-name" [(ngModel)]= "selectedProject.name" />
+      <input type="button" value="Save" (click) = "save()"/>
+    </div>
   </div>
   <app-task-form (addedTaskEvent) = "addTask($event)"  [project] = "project" ></app-task-form>
 </div>
 
-<button (click) = "goBack()">go back</button>
+<button class="back-button" (click) = "goBack()">go back</button>
 

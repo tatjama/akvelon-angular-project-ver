@@ -1,0 +1,8 @@
+.task-form input[type="button"]{
+  background-color: #06a590;
+  color: #fff;
+}
+.task-form input[type="button"]:hover{
+  background-color:#84ddd1;
+  color:#000;
+}

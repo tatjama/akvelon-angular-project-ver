@@ -6,10 +6,7 @@ li{
   display: flex;
   flex-direction: column;
 }
-.project{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.project-list{
   align-items: center;
   padding: 10px;
 }
