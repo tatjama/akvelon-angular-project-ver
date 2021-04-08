@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {catchError, map, tap} from 'rxjs/operators';
 
-//Components Interface
+//Components
 import { PROJECTS } from './mock-projects';
 import { Project } from './project';
 
@@ -18,11 +18,9 @@ import { MessageService } from './message.service';
 export class ProjectService {
 
   private projectsUrl = 'http://localhost:3000/projects';
+  private tasksUrl = 'http://localhost:3000/tasks';
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-    ) { }
+  constructor(private http: HttpClient,  private messageService: MessageService) { }
 
   private log(message:string){
     this.messageService.add(`Project Service message: ${message}`)
@@ -32,7 +30,6 @@ export class ProjectService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  /**GET: get list of projects from server */
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(this.projectsUrl)
       .pipe(
@@ -41,7 +38,6 @@ export class ProjectService {
         )
   }
 
-  /**GET: get project by ID from server */
   getProject(id: number): Observable<Project> {
     const url = `${this.projectsUrl}/${id}`;
     return this.http.get<Project>(url)
@@ -49,28 +45,27 @@ export class ProjectService {
           tap(_ => this.log(`fetched project id=${id}`)),
           catchError(this.handleError<Project>(`getProject id=${id}`))
         );
-     //Hardcoded mock projects
-    /*const project = PROJECTS.find(p => p.id === id) as Project;
+    const project = PROJECTS.find(p => p.id === id) as Project;
     this.messageService.add(`ProjectService: fetched project id=${id}`);
-    return of(project);*/
+    return of(project);
   }
 
   /** PUT: update the project on the server */
-  updateProject(project: Project): Observable<any> {
-    const url = `${this.projectsUrl}/${project.id}`;
-    return this.http.put(url, project, this.httpOptions).pipe(
-      tap(_ => this.log(`updated project id=${project.id}`)),
-      catchError(this.handleError<any>('updateProject'))
-    );
-  }
+updateProject(project: Project): Observable<any> {
+  const url = `${this.projectsUrl}/${project.id}`;
+  return this.http.put(url, project, this.httpOptions).pipe(
+    tap(_ => this.log(`updated project id=${project.id}`)),
+    catchError(this.handleError<any>('updateProject'))
+  );
+}
 
   /** POST: add a new project to the server */
-   addProject(project: Project): Observable<Project> {
-     return this.http.post<Project>(this.projectsUrl, project, this.httpOptions).pipe(
-      tap((newProject: Project) => this.log(`added project w/ id=${newProject.id}`)),
-      catchError(this.handleError<Project>('addProject'))
-    );
-  }
+    addProject(project: Project): Observable<Project> {
+    return this.http.post<Project>(this.projectsUrl, project, this.httpOptions).pipe(
+    tap((newProject: Project) => this.log(`added project w/ id=${newProject.id}`)),
+    catchError(this.handleError<Project>('addProject'))
+  );
+}
 
   private handleError<T>(operation = 'operation', result?: T){
       return (error: any): Observable<T> => {

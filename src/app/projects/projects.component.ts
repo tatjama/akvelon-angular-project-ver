@@ -12,7 +12,6 @@ import { ProjectService } from '../project.service';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-
     title: string = 'Projects';
     projects: Project[] = [];
     selectedProject: Project = new Project();
