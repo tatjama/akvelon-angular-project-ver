@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Project } from '../project';
+//Service
 import { ProjectService } from '../project.service';
+
+//Interfaces
+import { Project } from '../project';
 
 @Component({
   selector: 'app-project-form',

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+
+//Interfaces
 import { Task } from '../task';
 
 @Component({
@@ -9,7 +11,9 @@ import { Task } from '../task';
 export class TasksComponent implements OnInit {
 
   selectedTask: Task;
+
   @Input() tasks:Task[];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +22,6 @@ export class TasksComponent implements OnInit {
   onSelect(task): void {
     this.selectedTask === task? this.selectedTask = undefined:
     this.selectedTask = task;
-
   }
 
 }

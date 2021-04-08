@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+
+//Interfaces
 import { Project } from '../project';
 import { Task } from '../task';
 
@@ -12,7 +14,6 @@ export class TaskFormComponent implements OnInit {
 
   newTask:Task = new Task();
   title:string ="Add new task";
-  //updatedTasks: Task[];
   updatedProject: Project;
 
   @Input() project:Project;

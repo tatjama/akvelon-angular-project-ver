@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+
+//Interfaces
 import { Project } from '../project';
 
 @Component({
