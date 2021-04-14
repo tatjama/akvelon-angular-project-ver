@@ -7,7 +7,7 @@ import {catchError, map, tap} from 'rxjs/operators';
 
 //Components
 import { PROJECTS } from './mock-projects';
-import { Project } from './project';
+import { Project } from './project.model';
 
 //Service
 import { MessageService } from './message.service';

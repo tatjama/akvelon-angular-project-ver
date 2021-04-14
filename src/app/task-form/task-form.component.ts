@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { Project } from '../project';
-import { Task } from '../task';
+import { Project } from '../project.model';
+import { Task } from '../task.model';
 
 @Component({
   selector: 'app-task-form',

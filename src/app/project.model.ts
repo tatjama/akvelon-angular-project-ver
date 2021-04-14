@@ -1,4 +1,4 @@
-import { Task } from "./task";
+import { Task } from "./task.model";
 
 export class Project{
   id: number;

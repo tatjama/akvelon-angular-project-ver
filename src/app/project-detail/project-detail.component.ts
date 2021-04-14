@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
 //Service
 import { ProjectService } from '../project.service';
 
-import { Project } from '../project';
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-project-detail',
