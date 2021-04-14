@@ -7,14 +7,14 @@ import { FormsModule } from '@angular/forms';
 //Component
 import { AppComponent } from './app.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MessagesComponent } from './messages/messages.component';
 import { TasksComponent } from './tasks/tasks.component';
-import { TaskDetailComponent } from './task-detail/task-detail.component';
-import { ProjectFormComponent } from './project-form/project-form.component';
-import { TaskFormComponent } from './task-form/task-form.component';
-import { ProjectUpdateComponent } from './project-update/project-update.component';
+import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
+import { ProjectFormComponent } from './projects/project-form/project-form.component';
+import { TaskFormComponent } from './tasks/task-form/task-form.component';
+import { ProjectUpdateComponent } from './projects/project-update/project-update.component';
 
 @NgModule({
   declarations: [

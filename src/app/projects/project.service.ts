@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 //Https
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {catchError, map, tap} from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 //Components
 import { PROJECTS } from './mock-projects';
 import { Project } from './project.model';
 
 //Service
-import { MessageService } from './message.service';
+import { MessageService } from '../messages/message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,6 @@ import { MessageService } from './message.service';
 export class ProjectService {
 
   private projectsUrl = 'http://localhost:3000/projects';
-  private tasksUrl = 'http://localhost:3000/tasks';
 
   constructor(private http: HttpClient,  private messageService: MessageService) { }
 

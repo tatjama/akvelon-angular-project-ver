@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { Project } from '../project.model';
+import { Project } from '../../projects/project.model';
 import { Task } from '../task.model';
 
 @Component({
