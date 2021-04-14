@@ -6,7 +6,7 @@
   <li *ngFor="let project of projects">
       <div class="list project-list">
         <span>{{ project.name }}</span>
-        <a routerLink = "/projectdetail/{{ project.id }}">
+        <a routerLink = "/projects/{{ project.id }}">
           <button class="details" [id]="project.id" [project] = "selectedProject" > Show Details</button>
         </a>
       </div>

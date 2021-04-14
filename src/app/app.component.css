@@ -2,6 +2,8 @@ nav{
   background-color: #369;
   display: flex;
   justify-content: center;
+  width: 40%;
+  margin: 0px auto;
 }
 nav a{
   color: #fff;
@@ -11,7 +13,15 @@ nav a{
   padding: 10px;
   cursor: pointer;
 }
+.active{
+  background-color: #399;
+}
 nav a:hover{
   color: #369;
   background-color: #fff;
+}
+@media screen and (max-width:768px){
+  nav{
+    width: 100%;
+  }
 }
