@@ -5,8 +5,7 @@
   margin: 10px auto;
 }
 .project-detail-list{
-  margin: 20px auto;
-  flex-wrap: wrap;
+  width: 100%;
 }
 .back-button{
   background-color: #369;
